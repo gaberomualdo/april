@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>April</title>
+
+  <link rel="shortcut icon" href="assets/img/icon.png">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <h1>April</h1>
+      <p>A simple homework organizer</p>
+    </div>
+    <button class="add" onclick="document.querySelector('.add_modal').classList.add('active');document.querySelector('.add_modal div.content p.subject').innerHTML = '<strong>Subject:</strong>';subjects_list.forEach(function(subject,index){ var classname = ''; if(index==0){ classname = 'active'; } document.querySelector('.add_modal div.content p.subject').innerHTML += `<button onclick='select_box_select(this);' class='${classname}'>` + subject + `</button> ` });">
+      <p>Add Task or Subject</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+    </button>
+  </nav>
+  <div class="container">
+    <div class="sort_by select_box">
+      <strong>Sort Tasks By:</strong>
+      <button class="active" onclick="select_box_select(this);refresh_tasks_list();">Due Date</button>
+      <button onclick="select_box_select(this);refresh_tasks_list();">Subject</button>
+    </div>
+    <ul class="tasks">
+
+    </ul>
+    <div class="add_modal modal">
+      <div class="content">
+        <button class="close" onclick="reset_modal_values(this);this.parentElement.parentElement.classList.remove('active');">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        </button>
+        <div class="add_type select_box">
+          <strong>Add New: </strong>
+          <button class="active" onclick="this.parentElement.parentElement.classList.remove('add_type_subject');select_box_select(this);">Task</button>
+          <button onclick="this.parentElement.parentElement.classList.add('add_type_subject');select_box_select(this);">Subject</button>
+        </div>
+        <p class="subject select_box">
+          <strong>Subject:</strong>
+        </p>
+        <p class="due_date">
+          <strong>Due Date:</strong>
+          <input type="date">
+        </p>
+        <p class="content">
+          <strong>Task Content:</strong>
+          <input type="text" spellcheck="false" style="width: calc(100% - 8rem);">
+        </p>
+        <p class="subject_name">
+          <strong>Subject Name:</strong>
+          <input type="text" spellcheck="false">
+        </p>
+        <button class="add" onclick="add(this);">
+          Add <span class="task">Task</span><span class="subject">Subject</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
