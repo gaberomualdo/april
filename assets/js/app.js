@@ -6,32 +6,7 @@ function select_box_select(button){
   button.classList.add("active");
 }
 function refresh_tasks_list(){
-  tasks_list = JSON.parse(localStorage.getItem("april_tasks_list")) || [
-    {
-      subject: "English",
-      due_date: "23 January 2018",
-      content: "23 assigment",
-      index: 0
-    },
-    {
-      subject: "Social Studies",
-      due_date: "12 January 2018",
-      content: "12 assigment",
-      index: 1
-    },
-    {
-      subject: "Spanish",
-      due_date: "23 January 2018",
-      content: "23 assigment",
-      index: 2
-    },
-    {
-      subject: "English",
-      due_date: "25 January 2018",
-      content: "25 assigment",
-      index: 3
-    },
-  ];
+  tasks_list = JSON.parse(localStorage.getItem("april_tasks_list")) || [];
   subjects_list = JSON.parse(localStorage.getItem("april_subjects_list")) || [
     "English",
     "Social Studies",
